@@ -1,0 +1,25 @@
+version: '3'
+       services:
+         frontend-app:
+           container_name: frontend-app
+           build: ./frontend-app
+           ports:
+             - "3000:3000"
+           depends_on:
+             - api-server
+           networks:
+             - test-network
+         api-server:
+           container_name: api-server
+           restart: always
+           build:
+             context: api-server
+             dockerfile: Dockerfile
+           ports:
+             - "5000:5000"
+           #command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker
+           networks:
+             - test-network
+       networks:
+         test-network:
+            driver: bridge
