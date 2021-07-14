@@ -1,4 +1,4 @@
-# phone-number-filteration(react,java)
+# phone-number-filteration(react , java)
 
 * Spring boot application with sqlite database using clean structure and following solid principle roles.
 
